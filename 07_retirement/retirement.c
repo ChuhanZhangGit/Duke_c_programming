@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-struct retire_info_s {
+struct _retire_info {
   /*
     month: number of month it's applicable to
     contribution: dollars contributed; if negative
@@ -13,7 +13,7 @@ struct retire_info_s {
   double rate_of_return;
 };
 
-typedef struct retire_info_s retire_info;
+typedef struct _retire_info retire_info;
 
 double print(int age, double initial, retire_info info){
   int year = age/12;
