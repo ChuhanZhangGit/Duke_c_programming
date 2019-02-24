@@ -102,16 +102,16 @@ card_t card_from_letters(char value_let, char suit_let) {
       }
 
   if (suit_let == 's'){
-    temp.suit = 0;
+    temp.suit = SPADES;
   }
   else if (suit_let == 'h'){
-    temp.suit = 1;
+    temp.suit = HEARTS;
   }
   else if (suit_let == 'd'){
-    temp.suit = 2;
+    temp.suit = DIAMONDS;
   }
   else if (suit_let == 'c'){
-    temp.suit = 3;
+    temp.suit = CLUBS;
   }
   else{
     printf("Input error");
