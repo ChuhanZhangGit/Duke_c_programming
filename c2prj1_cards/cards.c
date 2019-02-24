@@ -81,8 +81,11 @@ void print_card(card_t c) {
 card_t card_from_letters(char value_let, char suit_let) {
   card_t temp;
   unsigned try = value_let - '0';
-  if (try >= 0 && try <= 9){
+  if (try >= 2 && try <= 9){
     temp.value = try;
+  }
+  else if (value_let == '0'){
+    temp.value = 10;
   }
   else if (value_let == 'J'){
     temp.value = 11;
