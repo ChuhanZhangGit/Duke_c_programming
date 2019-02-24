@@ -130,8 +130,8 @@ card_t card_from_num(unsigned c) {
     exit(EXIT_FAILURE);
   }
   else{
-    temp.suit = c/14;
-    temp.value = c%14;
+    temp.suit = c/13;
+    temp.value = 2+c%13;
   } 
   return temp;
 }
