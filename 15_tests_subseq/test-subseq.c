@@ -34,7 +34,7 @@ int main(void){
   size_t size[] = {10, 6, 1, 5, 4};
   size_t right_array[] = {4, 6, 1, 2, 3};
   int num_test = 5;
-
+  // test NULL array and array with size 0
   if (maxSeq(NULL, 0)){
     printf("Fail on NULL");
     return EXIT_FAILURE;
