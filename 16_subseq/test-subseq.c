@@ -16,15 +16,13 @@ size_t maxSeq(int * array, size_t n){
 	  seq += 1;
 	}
       else {
-	if (maxseq < seq ){
-	    maxseq = seq;
-	  }
 	seq = 1;
       }
-    }
-    if (maxseq < seq) {
-      maxseq = seq;
-    }
+    
+      if (maxseq < seq) {
+	maxseq = seq;
+      }
+    } 
     return maxseq;
   }
 }
