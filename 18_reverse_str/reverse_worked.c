@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+/*
 void reverse(char * str) {
   size_t len_input = strlen(str);
   int i, j;
@@ -11,7 +11,7 @@ void reverse(char * str) {
     str[j] = temp;
   }
 }
-/*
+*/
 void reverse(char* str) {
   char* end = str;
   char tmp = 0;
@@ -27,10 +27,9 @@ void reverse(char* str) {
     }
   }
 }
-*/
+
 int main(void) {
-  char str0[] = {'\0','H', 'e', 'l', 'l', 'o','\0'};
-  printf("%s\n", str0);
+  char str0[] = "";
   char str1[] = "123";
   char str2[] = "abcd";
   char str3[] = "Captain's log, Stardate 42523.7";
