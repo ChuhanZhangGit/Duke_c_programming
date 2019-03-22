@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+/*
 void reverse(char * str) {
   size_t len_input = strlen(str);
   int i, j;
@@ -9,6 +9,22 @@ void reverse(char * str) {
     char temp = str[i];
     str[i] = str[j];
     str[j] = temp;
+  }
+}
+*/
+void reverse(char* str) {
+  char* end = str;
+  char tmp = 0;
+  if(str) {
+    while(*end) {
+      end++;
+    }
+    --end;
+    while(end>str) {
+      tmp = *end;
+      *end-- = *str;
+      *str++ = tmp;
+    }
   }
 }
 
