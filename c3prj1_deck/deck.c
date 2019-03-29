@@ -29,10 +29,7 @@ void shuffle(deck_t * d){
 
 void assert_full_deck(deck_t * d) {
   assert(d->n_cards == 52);
-  printf("deck has 52 cards. \n");
-  
   for (unsigned i = 0; i < d->n_cards; i++){
     assert(deck_contains(d, card_from_num(i)) == 1);
   }
-  printf("Decks has 52 different cards!");
 }
