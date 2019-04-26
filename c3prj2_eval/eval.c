@@ -100,7 +100,10 @@ int is_n_length_straight_at(deck_t * hand, size_t index, suit_t fs, int n) {
   int count = 1;
   unsigned card_value = hand->cards[index]->value;
   for (size_t i = index+1; i < hand->n_cards; i++) {
-    if (fs != NUM_SUITS) {
+    if (count >= 5) {
+      return 1;
+    }
+    else if (fs != NUM_SUITS) {
       if (hand->cards[i]->suit == fs) {
 	if (hand->cards[i]->value == card_value -1) {
 	  card_value--;
