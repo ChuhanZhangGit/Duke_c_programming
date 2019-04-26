@@ -13,15 +13,7 @@ int card_ptr_comp(const void * vp1, const void * vp2) {
     return 1;
   }
   else {
-    if ((*card1)->suit < (*card2)->suit){
-      return -1;
-    }
-    else if ((*card1)->suit < (*card2)->suit){
-      return 1;
-    }
-    else {
-      return 0;
-    }
+    return (*card1)->suit - (*card2)->suit;
   }
 }
 
