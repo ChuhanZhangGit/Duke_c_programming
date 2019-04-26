@@ -82,7 +82,7 @@ ssize_t  find_secondary_pair(deck_t * hand,
 			     unsigned * match_counts,
 			     size_t match_idx) {
   unsigned match_pre = hand->cards[match_idx]->value;
-  for (size_t i =  match_idx+1; i < hand->n_cards-1; i++) {
+  for (size_t i =  0; i < hand->n_cards-1; i++) {
     if (match_pre != hand->cards[i]->value) {
       if (hand->cards[i]->value == hand->cards[i+1]->value) {
 	* match_counts += 1;
