@@ -29,7 +29,7 @@ int get_max_idx(int * array, int size) {
 
 int main(int argc, char ** argv) {
   if (argc != 2) {
-    printf("Invalid command line argument\n");
+    perror("Invalid command line argument\n");
     return EXIT_FAILURE;
   }
   FILE * f = fopen(argv[1], "r");
