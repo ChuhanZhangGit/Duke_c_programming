@@ -1,15 +1,16 @@
-Grading at Tue Apr 30 21:21:47 UTC 2019
+Grading at Tue Apr 30 21:23:40 UTC 2019
 Attempting to compile breaker.c 
-make: 'break' is up to date.
-valgrind reported memory errors
+make: 'breaker' is up to date.
+Invalid command line argument
+testcase1 failed, your program didn't indicate this is a failure case
 #################################################
 testcase2:
-valgrind reported memory errors or your program ran too long
+testcase2 passed
 #################################################
 testcase3:
-valgrind reported memory errors or your program ran too long
+testcase3 passed
 #################################################
 testcase4:
-valgrind reported memory errors or your program ran too long
+testcase4 passed
 
-Overall Grade: F
+Overall Grade: C
