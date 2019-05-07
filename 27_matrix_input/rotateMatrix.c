@@ -58,6 +58,7 @@ int main(int argc, char ** argv) {
   FILE * f = fopen(argv[1], "r");
   if (f == NULL) {
     perror("Could not open the input file");
+    return EXIT_FAILURE;
   }
   char matrix[10][10];
   if (create_matrix(matrix, f) != 1) {
