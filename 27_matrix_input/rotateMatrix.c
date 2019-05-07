@@ -24,38 +24,51 @@ void copystr(char * str, char * array) {
   }
 }
 
-int main(int argc, char ** argv) {
-  if (argc != 2) {
-    perror("error was: ");
-    return EXIT_FAILURE;
-  }
-  FILE * f = fopen(argv[1], "r");
-  if (f == NULL) {
-    perror("error was: ");
-  }
-  char line[LINE_SIZE];
-  char matrix[10][10];
+int create_matrix(char matrix[10][10], FILE * f) {
   int row_num = 0;
+  char line[LINE_SIZE];
   while (fgets(line, LINE_SIZE, f) != NULL) {
     if (strchr(line, '\n') == NULL) {
-      printf("Line is too long!\n");
-      return EXIT_FAILURE;
+      fprintf(stderr, "Line %d is too long!\n", row_num+1);
+      return -1;
     }
     if ((strchr(line, '\n')- line) != 10 ) {
-      printf("Line is too short!\n");
-      return EXIT_FAILURE;
+      fprintf(stderr,"Line %d is too short!\n", row_num+1);
+      return -1;
     }
     if (row_num == 10) {
-      printf("Too many lines.");
-      return EXIT_FAILURE;
+      fprintf(stderr, "Too many lines.");
+      return -1;
     }
     copystr(line, matrix[row_num]);
     row_num ++; 
   }
   if (row_num < 10) {
-    printf("Too little lines.");
+    fprintf(stderr,"Too little lines.");
+    return -1;
+  }
+  return 1;
+}
+
+int main(int argc, char ** argv) {
+  if (argc != 2) {
+    fprintf(stderr,"Usage: filename %s", argv[0]);
     return EXIT_FAILURE;
   }
+  FILE * f = fopen(argv[1], "r");
+  if (f == NULL) {
+    perror("Could not open the input file");
+  }
+  char matrix[10][10];
+  if (create_matrix(matrix, f) != 1) {
+    return EXIT_FAILURE;
+  }
+  
+  if (fclose(f) != 0) {
+    perror("Failed to close the input file");
+    return EXIT_FAILURE;
+  }
+
   rotate(matrix);
   for (int i =0 ; i < 10; i++) {
     for (int j = 0; j < 10; j++) {
