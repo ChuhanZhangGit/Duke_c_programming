@@ -31,6 +31,7 @@ void loadarray(FILE * f) {
   free(line);
   sortData(array, str_num);
   for (int i =0; i < str_num; i++) {
+    printf("%s", array[i]);
     free(array[i]);
   }
   free(array);
@@ -49,7 +50,7 @@ int main(int argc, char ** argv) {
       }
       loadarray(f);
       if (fclose(f) != 0) {
-	perror("Cant' close the file!");
+	perror("Can't close the file!");
 	return EXIT_FAILURE;
       }
     }
