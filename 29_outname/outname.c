@@ -4,5 +4,10 @@
 #include "outname.h"
 
 char * computeOutputFileName(const char * inputName) {
-  //WRITE ME
+  // ".counts" on the end for 7 more space + 1 Null terminator
+  char * outfileName = malloc((strlen(inputName)+ 8) * sizeof(*outfileName));
+  strcpy(outfileName, inputName);
+  strcat(outfileName, ".counts");
+  return outfileName;
+
 }
