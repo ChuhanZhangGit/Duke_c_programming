@@ -16,9 +16,45 @@ void sortData(char ** data, size_t count) {
   qsort(data, count, sizeof(char *), stringOrder);
 }
 
-int main(int argc, char ** argv) {
+void loadarray(FILE * f) {
   
-  //WRITE YOUR CODE HERE!
+  char ** array = NULL;
+  char * line = NULL;
+  size_t size;
+  size_t str_num = 0;
+  while (getline(&line, &size, f) >= 0) {
+    array = realloc(array, (str_num+1) * sizeof(*array));
+    array[str_num] = line;
+    line = NULL;
+    str_num++;
+  }
+  free(line);
+  sortData(array, str_num);
+  for (int i =0; i < str_num; i++) {
+    free(array[i]);
+  }
+  free(array);
+}
+ 
+int main(int argc, char ** argv) {
+  if (argc == 1) {
+    loadarray(stdin);
+  }
+  else if (argc > 1) {
+    for ( int i = 1; i < argc; i++ ) {
+      FILE * f = fopen(argv[i], "r");
+      if (f == NULL) {
+	perror("Can't read the file!");
+	return EXIT_FAILURE;
+      }
+      loadarray(f);
+      if (fclose(f) != 0) {
+	perror("Cant' close the file!");
+	return EXIT_FAILURE;
+      }
+    }
+  }
+ 
   
   return EXIT_SUCCESS;
 }
